@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: ltr; text-align: center; }
+        .quiz-container { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        button { margin-top: 10px; padding: 10px; background: #007bff; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>🔥 Will Crypto Survive or is it the Future of Finance? 🔥</h2>
+        <form id="quizForm">
+            <p>1️⃣ What makes Bitcoin the best investment?</p>
+            <label><input type="radio" name="q1" value="a"> Limited supply (21 million)</label><br>
+            <label><input type="radio" name="q1" value="b"> Support from central banks</label><br>
+            <label><input type="radio" name="q1" value="c"> Blockchain technology</label><br>
+            
+            <p>2️⃣ Do you think crypto can replace banks?</p>
+            <label><input type="radio" name="q2" value="yes"> Yes, banks are outdated!</label><br>
+            <label><input type="radio" name="q2" value="no"> No, governments won’t allow it!</label><br>
+            <label><input type="radio" name="q2" value="mixed"> A mix of both, but not anytime soon!</label><br>
+            
+            <p>3️⃣ If a meme coin jumps 500% today, what would you do?</p>
+            <label><input type="radio" name="q3" value="sell"> 🏃 Sell immediately!</label><br>
+            <label><input type="radio" name="q3" value="hold"> 🚀 Hold, maybe to the moon!</label><br>
+            <label><input type="radio" name="q3" value="watch"> 🤷‍♂️ Just watch, no FOMO!</label><br>
+            
+            <button type="button" onclick="submitQuiz()">Submit Answers</button>
+        </form>
+    </div>
+    
+    <script>
+        function submitQuiz() {
+            let form = document.getElementById('quizForm');
+            let answers = {};
+            let elements = form.elements;
+            for (let i = 0; i < elements.length; i++) {
+                if (elements[i].type === 'radio' && elements[i].checked) {
+                    answers[elements[i].name] = elements[i].value;
+                }
+            }
+            localStorage.setItem('cryptoQuizAnswers', JSON.stringify(answers));
+            alert('Your answers have been saved!');
+        }
+    </script>
+</body>
+</html>
